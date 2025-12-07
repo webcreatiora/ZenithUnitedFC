@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FC Club Official Website</title>
+<style>
+body.dark { background:#0d0d0d; color:#f2f2f2; }
+body{margin:0;font-family:Arial,sans-serif;background:#f2f2f2;transition:.4s;}
+header{background:#A50044;color:white;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;}
+header nav a{color:#FDB913;margin:0 15px;text-decoration:none;font-weight:bold;cursor:pointer;}
+.toggle-btn{background:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer;font-weight:bold;}
+section{display:none;padding:40px 20px;}
+section.active{display:block;}
+.hero{height:70vh;background:url("https://via.placeholder.com/1600x800/002D72/fff?text=Hero+Banner") center/cover no-repeat;color:white;display:flex;align-items:center;justify-content:center;font-size:4rem;text-shadow:0 4px 15px black;}
+.schedule-container{width:90%;margin:auto;overflow:hidden;}
+.schedule-scroll{display:flex;animation: slide 12s linear infinite;}
+.schedule-item{min-width:33%;background:white;padding:25px;border-right:1px solid #ddd;text-align:center;}
+@keyframes slide{0%{transform:translateX(0);}100%{transform:translateX(-100%);}}
+.videos{width:90%;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;}
+.video-box iframe{width:100%;height:200px;border-radius:10px;}
+.players-grid{width:90%;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.player-card{background:white;padding:20px;text-align:center;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,.1);}
+.player-card img{width:100%;border-radius:10px;}
+.stats{margin-top:10px;background:#e6e6e6;padding:10px;border-radius:8px;font-size:.9rem;}
+.stadium-container{width:90%;margin:auto;text-align:center;}
+.stadium-container img{width:100%;border-radius:12px;margin-bottom:20px;box-shadow:0 3px 15px rgba(0,0,0,0.2);}
+.auth-container{width:300px;margin:auto;background:white;padding:20px;border-radius:10px;}
+.auth-container input{width:100%;padding:10px;margin-bottom:10px;}
+.auth-container button{width:100%;padding:10px;background:#004D98;color:white;border:none;cursor:pointer;}
+#chat-box{width:65%;margin:auto;background:white;height:60vh;border-radius:10px;margin-top:20px;padding:20px;overflow-y:auto;box-shadow:0 3px 10px rgba(0,0,0,.2);float:left;}
+#user-list{width:25%;height:60vh;margin-left:10px;background:#f2f2f2;padding:15px;overflow-y:auto;float:left;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,.2);}
+.message{background:#e8e8e8;padding:10px;margin-bottom:10px;border-radius:6px;}
+.you{background:#d1f0ff;}
+#input-area{display:flex;width:65%;margin:20px auto;float:left;}
+#msg{flex:1;padding:12px;border-radius:6px;border:1px solid #ccc;}
+#input-area button{padding:12px 20px;background:#A50044;color:white;border:none;margin-left:10px;cursor:pointer;border-radius:6px;}
+.section-title{text-align:center;font-size:2rem;color:#004D98;margin-bottom:20px;}
+footer{clear:both;text-align:center;padding:20px;background:#004D98;color:white;}
+@media(max-width:700px){.hero{font-size:2.5rem;}header{flex-direction:column;} #chat-box,#user-list,#input-area{width:90%;float:none;margin:auto;} }
+</style>
+</head>
+<body>
+
+<header>
+<h1>FC Club</h1>
+<nav>
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('matches')">Matches</a>
+<a onclick="showPage('players')">Players</a>
+<a onclick="showPage('videos')">Videos</a>
+<a onclick="showPage('stadium')">Stadium</a>
+<a onclick="showPage('chat')">Fan Chat</a>
+<a onclick="showPage('login')">Login</a>
+<a onclick="showPage('signup')">Sign Up</a>
+</nav>
+<button class="toggle-btn" onclick="toggleDarkMode()">Dark Mode</button>
+</header>
+
+<section id="home" class="active">
+<div class="hero">FORÇA CLUB!</div>
+</section>
+
+<section id="matches">
+<h2 class="section-title">Upcoming Matches</h2>
+<div class="schedule-container">
+<div class="schedule-scroll">
+<div class="schedule-item"><h3>FC Club vs Red Lions</h3><p>Jan 12 • 20:00</p></div>
+<div class="schedule-item"><h3>Blue Stars vs FC Club</h3><p>Jan 18 • 19:00</p></div>
+<div class="schedule-item"><h3>FC Club vs Galaxy FC</h3><p>Jan 22 • 21:00</p></div>
+</div>
+</div>
+</section>
+
+<section id="players">
+<h2 class="section-title">Players & Stats</h2>
+<div class="players-grid">
+<div class="player-card">
+<img src="https://via.placeholder.com/300x350">
+<h3>Player One</h3>
+<p>Forward</p>
+<div class="stats">Goals: 12<br>Assists: 8</div>
+</div>
+<div class="player-card">
+<img src="https://via.placeholder.com/300x350">
+<h3>Player Two</h3>
+<p>Midfielder</p>
+<div class="stats">Pass Accuracy: 92%</div>
+</div>
+</div>
+</section>
+
+<section id="videos">
+<h2 class="section-title">Video Highlights</h2>
+<div class="videos">
+<div class="video-box"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe></div>
+<div class="video-box"><iframe src="https://www.youtube.com/embed/oHg5SJYRHA0"></iframe></div>
+</div>
+</section>
+
+<section id="stadium">
+<h2 class="section-title">Our Stadium</h2>
+<div class="stadium-container">
+<img src="https://via.placeholder.com/1400x700/004D98/ffffff?text=Stadium+Image" alt="Stadium">
+<h2>Dream Arena</h2>
+<p>Capacity: 70,000</p>
+<p>Opened: 2025</p>
+<p>Location: Your City Here</p>
+</div>
+</section>
+
+<section id="login">
+<div class="auth-container">
+<h2>Log In</h2>
+<input id="login-email" type="email" placeholder="Email">
+<input id="login-password" type="password" placeholder="Password">
+<button onclick="login()">Log In</button>
+<p>No account? <span style="color:blue; cursor:pointer;" onclick="showPage('signup')">Sign up here</span></p>
+</div>
+</section>
+
+<section id="signup">
+<div class="auth-container">
+<h2>Sign Up</h2>
+<input id="signup-email" type="email" placeholder="Email">
+<input id="signup-password" type="password" placeholder="Password">
+<button onclick="signup()">Sign Up</button>
+<p>Already have an account? <span style="color:blue; cursor:pointer;" onclick="showPage('login')">Log in here</span></p>
+</div>
+</section>
+
+<section id="chat">
+<h2 class="section-title">Fan Chat Room (Online)</h2>
+<div id="chat-box"></div>
+<div id="user-list"><h3>Online Users</h3><ul id="users-ul"></ul></div>
+<div id="input-area">
+<input id="msg" type="text" placeholder="Type a message...">
+<button onclick="send()">Send</button>
+</div>
+</section>
+
+<footer>© 2025 FC Club — All rights reserved.</footer>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+import { 
+  getDatabase, ref, set, push, onValue, onChildAdded 
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+import { 
+  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  onAuthStateChanged 
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+
+// -----------------------
+//  FIREBASE CONFIG
+// -----------------------
+const firebaseConfig = {
+  apiKey: "YOUR KEY",
+  authDomain: "YOUR APP.firebaseapp.com",
+  databaseURL: "https://YOUR APP.firebaseio.com",
+  projectId: "YOUR APP",
+  storageBucket: "YOUR APP.appspot.com",
+  messagingSenderId: "YOUR ID",
+  appId: "YOUR APP ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const auth = getAuth(app);
+
+// Dark Mode
+window.toggleDarkMode = function(){ document.body.classList.toggle("dark"); };
+
+// Page Navigation
+window.showPage = function(id){
+  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+};
+
+// SIGN UP
+window.signup = function(){
+  const email = document.getElementById("signup-email").value;
+  const pass = document.getElementById("signup-password").value;
+
+  createUserWithEmailAndPassword(auth, email, pass)
+    .then(() => {
+      alert("Account created!");
+      showPage("chat");
+    })
+    .catch(e => alert(e.message));
+};
+
+// LOGIN
+window.login = function(){
+  const email = document.getElementById("login-email").value;
+  const pass = document.getElementById("login-password").value;
+
+  signInWithEmailAndPassword(auth, email, pass)
+    .then(() => {
+      alert("Logged in!");
+      showPage("chat");
+    })
+    .catch(e => alert(e.message));
+};
+
+// CHAT SYSTEM
+const chatBox = document.getElementById("chat-box");
+const usersUl = document.getElementById("users-ul");
+
+onAuthStateChanged(auth, user => {
+  if (user) {
+    const userRef = ref(db, "onlineUsers/" + user.uid);
+    set(userRef, { email: user.email });
+    userRef.onDisconnect().remove();
+
+    onChildAdded(ref(db, "messages"), snap => {
+      const m = snap.val();
+      addMessage(m.user, m.text);
+    });
+
+    onValue(ref(db, "onlineUsers"), snap => {
+      usersUl.innerHTML = "";
+      snap.forEach(u => {
+        const li = document.createElement("li");
+        li.textContent = u.val().email;
+        usersUl.appendChild(li);
+      });
+    });
+  }
+});
+
+// Display message
+function addMessage(username, text){
+  const div = document.createElement("div");
+  div.className = "message";
+  div.innerHTML = `<b>${username}</b>: ${text}`;
+  chatBox.appendChild(div);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Send a message
+window.send = function(){
+  const msg = document.getElementById("msg").value;
+  const user = auth.currentUser;
+  if (!msg || !user) return;
+
+  push(ref(db, "messages"), { user: user.email, text: msg });
+  document.getElementById("msg").value = "";
+};
+
+</script>
+
+</body>
+</html>
